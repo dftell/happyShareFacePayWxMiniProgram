@@ -1,0 +1,16 @@
+<!--pages/main/main.wxml-->
+<view class="container">
+  
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+    <form bindsubmit="submit">
+    <input name="storename" placeholder="投注站名称"></input>
+    <picker name="city" mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+    <view class="picker">所在省市：{{region[0]}}，{{region[1]}}，{{region[2]}}</view>
+    </picker>
+  <input name="contacter" placeholder="联系人"></input>
+  <input name="telno" placeholder="手机号码"></input>
+  <button formType="submit">提交</button>
+  </form>
+  </view>
+</view>

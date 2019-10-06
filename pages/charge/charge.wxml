@@ -1,0 +1,24 @@
+<!--pages/main/main.wxml-->
+<view class="container">
+  
+  <view class="usertitle">
+    <text class="usertitle">{{title}}</text>
+    <view class="divLine"></view>
+    <form bindsubmit="formSubmit">
+      <input name="telNo" placeholder="手机号码" value="{{telNo}}"></input>
+      <input name="wxName" placeholder="微信昵称" value="{{wxName}}"></input>
+      <input name="chargeAmt" placeholder="提交金额" value="{{chargeAmt}}"></input>
+      <input name="BankNo" placeholder="收款银行卡号"></input>
+      <input name="contactName" placeholder="收款人" value="{{contactName}}"></input>
+      <button formType="submit" >提交</button>
+    </form>
+  </view>
+  <view class="ret-inf">
+     <view>
+      <label class="orderinfo">订单号:[{{orderNum}}];</label>    
+      <label class="orderinfo">金额:[{{chargeAmt}}]</label>
+    </view>
+  </view>
+    <view style='width: 200px; height: 200px; background-size: 100%; background-repeat: no-repeat; background-image: url("{{imgData}}");'>
+  </view>
+</view>

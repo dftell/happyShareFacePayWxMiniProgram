@@ -1,0 +1,12 @@
+/* pages/charge/charge.wxss */
+button {margin: 10;}
+.usertitle{font-size: 24px;text-align: center;}
+.divLine{
+
+ background:#E0E3DA;
+
+ width: 100%;
+
+ height: 5rpx;
+
+}
