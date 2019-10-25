@@ -1,0 +1,14 @@
+<view class="title">{{title}}</view>
+<view class="divLine"/>
+<view class="little-text">{{intraduce}}</view>
+
+<view>
+  <image style='width: 100%; background-size: 100%; background-repeat: no-repeat; background-image: url("{{imgUrl}}")'/>
+ 
+<view>
+  <button bindtap="gotoAgreement">我要合作</button>
+</view>
+<view>
+  <button bindtap="returnMenu">返回</button>
+</view>
+</view>

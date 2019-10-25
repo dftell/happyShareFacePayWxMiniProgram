@@ -1,0 +1,30 @@
+.title
+{
+  font-size:24;
+  font-weight:bold;
+  text-align: center;
+  margin-top:20px;
+}
+.login
+{
+  font-weight: bold;
+  text-align: center;
+}
+.myview
+{
+  margin-top:20px;
+}
+.flex-view-item
+{
+  width:33%
+}
+.flex-row
+{
+  text-align:center;
+}
+.userinfo
+{
+  width:33.33%;
+  font-size: 9px;
+  color: #888888;
+}

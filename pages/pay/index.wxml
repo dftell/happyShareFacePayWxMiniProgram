@@ -1,0 +1,32 @@
+<!--pages/pay/index.wxml-->
+
+<view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="userInfoHandler"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"/>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+</view>
+<view>
+<view class="title">{{title}}</view>
+<view class="little-text">{{intruduce}}</view>
+
+<view>
+  <image style='width: 150px; height: 150px; background-size: 100%; background-repeat: no-repeat; background-image: url("{{wxurl}}")'/>
+ <!--
+</view>
+<text class="little-txt">{{saleProduceWeChat}}</text>
+<text>{{saleProduceAliPay}}</text>
+<view>-->
+  <image style='width: 150px; height: 150px; background-size: 100%; background-repeat: no-repeat; background-image: url("{{alipayurl}}")'/>
+</view>
+<view>
+  <button type="primary" bindtap="gotoAgreement">我是商户</button>
+</view>
+<view>
+  <button type="primary" bindtap="gotoSaleMgr">代理商/员工内部管理</button>
+</view>
+<view>
+  <button bindtap="returnMenu">返回</button>
+</view>
+</view>

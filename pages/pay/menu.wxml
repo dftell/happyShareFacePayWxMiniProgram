@@ -1,0 +1,28 @@
+<view class="title">我的信息</view>
+<mp-cells ext-class="" title="[{{userDept}}/{{userPos}}]{{userName}}">
+  <view class="flex-row" style="display: flex;flex-direction: row;">
+      <view class="userinfo">已提现</view>
+      <view class="userinfo">奖金总额</view>
+      <view class="userinfo">未提现</view>
+ </view>
+<view class="flex-row" style="display: flex;flex-direction: row;">
+      <view class="userinfo" >{{payProfit}}</view>
+      <view class="userinfo">{{totalProfit}}</view>
+      <view class="userinfo">{{inpoolProfit}}</view>
+ </view>
+</mp-cells>
+<view class="userinfo">
+  <text></text>
+</view>
+<view>
+</view>
+<view class="myview">
+  <button type="primary" bindtap="AgreementForCustomer">代商户签约</button>
+  <button type="primary"  bindtap="AgreementForCustomer">查看我的商户</button>
+  <button type="primary" bindtap="AgreementForCustomer"> 查看我的设备</button>
+  <button type="primary" bindtap="AgreementForCustomer"> 查看我的分润</button>
+  <button type="primary" bindtap="AgreementForCustomer"> 查看我的设备</button>
+
+  <button bindtap="logout">退出</button>
+
+</view>

@@ -1,0 +1,24 @@
+.title {
+  color: #000;
+  font-size:18px;
+  font-weight:bold;
+  margin-top: 18px;
+  text-align: center
+}
+.wximg{
+  background-image: url("{{wxurl}}")
+}
+
+.alipayimg{
+  background-image: url("{{alipayurl}}")
+}
+.little-text{
+  margin-top: 18px;
+  font-size: 9px;
+}
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
