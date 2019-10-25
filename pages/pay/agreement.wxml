@@ -1,0 +1,29 @@
+<view>
+<view class="title">{{title}}</view>
+
+<view class="divLine">
+    <form bindsubmit="formSubmit">
+      
+      <input name="applyUserName" placeholder="商户名称" ></input>
+      <input name="applyUserId" type="idcard" placeholder="统一社会信用代码"></input>
+      <input name="applyAddress" placeholder="商户地址" ></input>
+      <input name="applyContact" placeholder="联系人"></input>
+      <input name="applyContactId" type="idcard" placeholder="联系人证件号/未提供营业执照需要"></input>
+      <input name="applyContactTel" placeholder="联系人电话"></input>
+      <input name="applyCnt" type="number" placeholder="申请台数" ></input>
+  <picker bindchange="bindMachineChange" name="machineName" value="machineNames[machineIndex]" range="{{machineNames}}">
+    <view class="picker">
+      机器类型：{{machineNames[machineIndex]}}
+    </view>
+  </picker>
+  <picker bindchange="bindPathChange" value="payPaths[payPathIndex]" range="{{payPaths}}">
+    <view class="picker">
+      协议通道类型：{{payPaths[payPathIndex]}}
+    </view>
+  </picker>
+      <input name="payPathRate" type="digit" placeholder="通道支付费率(%)"></input>
+      <button formType="submit" disabled="{{controlSetting.submitBtn.disabled}}">提交</button>
+    </form>
+  </view>
+
+</view>

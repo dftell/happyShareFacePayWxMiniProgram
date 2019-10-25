@@ -1,0 +1,43 @@
+<view>
+  <view class="title">{{title}}</view>
+  <form bindsubmit="submitCustomInfo" class="form" >
+  <view class="form" >
+      <input name="customId" type="text" placeholder="*请输入营业执照" />
+  </view>
+    <!--<view>
+      <input type="text" bindfocus="selectCategery" name="categery" value="{{myCategery}}" placeholder="*经营类目"/>
+    </view>-->
+    <view class="section__title">经营类目</view>
+  <picker mode="multiSelector" multiArray="{{selectCategery}}" multiIndex="" bindPickerChange="selectCategery" value="" >
+    <view class="picker">
+      当前选择：{{selectCategery[0]}}，{{selectCategery[1]}}，{{selectCategery[2]}}
+    </view>
+  </picker>
+    <view>
+      <text>上传经营资质</text>
+      <input type="text" name="b64AssetImgContent" value="{{b64AssetImg}}"  placeholder="assetBase64"  hidden='{{true}}'/>
+      <image name="assetImg"  bindtap="selectAssetImg" src="{{AssetImgSrc}}" class="ant-upload-select-picture-card">
+      </image>
+    </view>
+    <view>
+      <label>*上传营业执照</label>
+      <input type="text" name="b64IdImgContent" value="{{b64IdImg}}"  placeholder="idBase64" hidden='{{true}}' />
+      <image name="idImg" bindtap="selectIdImg" src="{{IdImgSrc}}" class="ant-upload-select-picture-card"  >
+      </image>
+
+    </view>
+    <view>
+      <label>*店铺招牌</label>
+      <input type="text" name="b64DoorImgContent" placeholder="doorBase64" value="{{b64DoorImg}}" hidden='{{true}}' />
+      <image name="idImg" bindtap="selectDoorImg" src="{{DoorImgSrc}}"  class="ant-upload-select-picture-card">
+      </image>
+    </view>
+    <view >联系人信息：</view>
+    <view ><input name="contactName" placeholder="*请输入姓名"/></view>
+    <view><input name="contactEmail" placeholder="*请输入电子邮箱"/></view>
+    <view><input type="number" name="contactTel" placeholder="*请输入手机号码"/></view>
+
+    <button class="form" form-type="submit" >提交资料</button>
+    <button bindtap="returnMenu" >返回菜单</button>
+  </form>
+</view>

@@ -4,12 +4,22 @@
     "pages/logs/logs",
     "pages/main/main",
     "pages/main/Regist",
-    "pages/charge/charge"
+    "pages/charge/charge",
+    "pages/menu/menu",
+    "pages/pay/index",
+    "pages/pay/agreement",
+    "pages/pay/outAgreement",
+    "pages/menu/gotoUrl",
+    "pages/lottery/index",
+    "pages/pay/MgrIndex",
+    "pages/pay/menu",
+    "pages/pay/createCustom",
+    "pages/pay/MyCustoms"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "武府投资",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json"

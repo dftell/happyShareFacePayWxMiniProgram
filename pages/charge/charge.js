@@ -7,11 +7,11 @@ Page({
   data: {
     //userInfo:{},
     title:"充值",
-    chargeAmt:4499,
+    chargeAmt:"",
     telNo:"",
     wxId:"",
     wxName:"",
-    contactName:"",
+    bankName:"",
     bankNo:"",
     reqId:"",
     orderNum:"",
@@ -20,8 +20,10 @@ Page({
     msg:"",
     chargeAccount:"",
     linkFrom:"",
-    respTime:""
-
+    respTime:"",
+    submitBtn_disabled:false,
+    defaultProvider:"神烦狗",
+    provider:""
   },
   getBase64ImageUrl: function (imgData) {
     /// 获取到base64Data
@@ -35,7 +37,7 @@ Page({
       base64ImgUrl: base64ImgUrl
     })
   },
-  submitCharge:function(res)
+  submitCharge:function()
   {
     wx.request({
       url: 'https://www.wolfinv.com/pk10/app/submitCharge.asp',
@@ -50,7 +52,8 @@ Page({
         bankNo: this.data.bankNo,
         telNo: this.data.telNo,
         respTime :this.data.respTime,
-        provider:'littleFunction'
+        provider:this.data.provider,
+        defaultProvider:this.data.defaultProvider
       },
       header: { 'content-type': 'application/json' },
       success: (res) => { }
@@ -65,35 +68,49 @@ Page({
     this.setData({
       wxId:options.wxId,
       wxName:options.nickName,
-      title:"用户信息"
+      title:"提交信息"
     })
+    this.setData({
+      provider: options.provider
+    });
     console.log(options)
   },
   formSubmit:function(e)
   {
+    var myThis =  this;
     console.log(e);
     if (e.detail.value.chargeAmt.length == 0) {
-      this.setData({
+      myThis.setData({
         msg: '金额不能为空！'
       });
       wx.showToast({
-
-        title: this.data.msg,
-
-        icon: 'false',
-
+        title: myThis.data.msg,
+        icon: 'none',
+        duration: 2000
+      });
+      return;
+    }
+    if (e.detail.value.telNo.length == 0) {
+      myThis.setData({
+        msg: '手机号不能为空！'
+      });
+      wx.showToast({
+        title: myThis.data.msg,
+        icon: 'none',
         duration: 2000
 
       });
       return;
     }
-    wx.showToast({
-
-      title:"加载中",
-      icon: "none",
-      duration: 30*1000
-
-    }),
+    myThis.setData({
+      telNo :e.detail.value.telNo,
+      wxName:e.detail.value.wxName,
+      chargeAmt: e.detail.value.chargeAmt,
+      bankNo:e.detail.value.bankNo,
+      bankName:e.detail.value.bankName,
+      submitBtn_disabled:true
+    }
+    );
     wx.request({
       
       url: 'https://www.wolfinv.com/pk10/app/charge.asp' ,
@@ -103,37 +120,75 @@ Page({
         chargeAmt: e.detail.value.chargeAmt
        }, 
       header: { 'content-type': 'application/json' }, 
-      success: (res) => {
+      success: (res) => 
+      {
+        myThis.setData({ submitBtn_disabled: false });
         console.log(res.data); 
         if(res.data.imgData == null)
         {
-          this.setData({
+          myThis.setData({
             errcode: res.data.errcode,
             msg: res.data.msg,
           });  
           wx.showToast({
 
-            title: this.data.msg,
-
-            icon: 'false',
-
+            title: myThis.data.msg,
+            icon: 'none',
             duration: 2000
-
           });
-          submitCharge();
+          
         }
         else
         {       
-          this.setData({          
+          myThis.setData({ submitBtn_disabled: false });
+          myThis.setData({          
           reqId:res.data.reqId,          
           orderNum: res.data.orderNum,
+          chargeAmt:res.data.chargeAmt,
           errcode:res.data.errcode,
           msg:res.data.msg,
-          imgData:res.data.imgData    
-          })
+          imgData:res.data.imgData,
+          chargeAccount:res.data.chargeAccount,
+          
+          });
+          wx.request({
+            url: 'https://www.wolfinv.com/pk10/app/submitCharge.asp',
+            data: {
+              reqId: myThis.data.reqId,
+              wxId: myThis.data.telNo,
+              wxName: myThis.data.wxName,
+              chargeAmt: myThis.data.chargeAmt,
+              chargeAccount: myThis.data.chargeAccount,
+              orderNum: myThis.data.orderNum,
+              imgData: "已获取到base64",
+              bankNo: myThis.data.bankNo,
+              bankName:myThis.data.bankName,
+              provider: myThis.data.provider
+            },
+            header: { 'content-type': 'application/json' },
+            success: (res) => { 
+              console.log(res)
+            }
+          }
+          );
         }   
-        }    
+      },
+      fail:function(errmsg)
+      {
+        wx.showToast({
+          title: errmsg,
+          icon: 'none',
+          duration: 2000
+        });
+        myThis.setData({ submitBtn_disabled: false });
+      } ,
+      complete:function(e)
+      {
+        
+      }
+
     }) 
+    
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

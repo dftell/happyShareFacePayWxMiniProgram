@@ -1,0 +1,23 @@
+<!--pages/pay/MgrIndex.wxml-->
+
+<view style="font-size:18;text-align:center;margin-top:20px;">
+  乐享智付销售管理终端
+</view>
+<view style="text-align:center;font-weight: bold;margin-top:20px;">
+    员工登录
+</view>
+<view style="margin-top: 20px;">
+<form bindsubmit="login" >
+  <view style="text-align:center;" >
+  <input name="loginId" placeholder="员工账号" value="{{userId}}"/>
+  
+  </view>
+<view style="text-align:center" >
+  <input name="loginPwd"  password type="text" placeholder="登录密码" value="{{userPwd}}"/>
+  
+  </view>
+  <view style="text-align:center;margin-top: 20px;" >
+    <button  type="primary" size="default" form-type="submit"  >登录</button>
+  </view>
+</form>
+</view>

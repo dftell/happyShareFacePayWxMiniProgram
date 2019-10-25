@@ -10,3 +10,10 @@ button {margin: 10;}
  height: 5rpx;
 
 }
+.title {
+  color: #000;
+  font-size:18px;
+  font-weight:bold;
+  margin-top: 18px;
+  text-align: center
+}

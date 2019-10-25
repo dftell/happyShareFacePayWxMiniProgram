@@ -1,0 +1,11 @@
+/* pages/menu/menu.wxss */
+.title {
+  color: #000;
+  font-size:18px;
+  margin-top: 24px;
+  font-weight:bold;
+  text-align: center
+}
+.list{
+  margin-top: 24px;
+}

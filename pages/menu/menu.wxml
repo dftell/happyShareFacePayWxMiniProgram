@@ -1,0 +1,13 @@
+<!--pages/menu/menu.wxml-->
+<view>
+  <view class="title">{{title}}</view>
+  <view class="list">
+    <button type="primary" bindtap="gotoInv">{{happyShareInvest}}</button>
+    <button type="primary" bindtap="gotoSaas">{{happyShareMgr}}</button>
+    <button type="primary" bindtap="gotoIIC">{{happyShareControl}}</button>
+    <button type="primary" bindtap="gotoCard">{{happyShareCard}}</button>
+    <button type="primary" bindtap="gotoLottery">{{happyShareLottery}}</button>
+    <button type="primary" bindtap="gotoPay">{{happySharePay}}</button>
+    <button bindtap="retIndex">{{returnIndex}}</button>
+  </view>
+</view>

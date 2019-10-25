@@ -1,15 +1,16 @@
 //index.js
 //获取应用实例
-const app = getApp()
+const app = getApp();
 
 Page({
   data: {
-    motto: '使用乐享卡',
-    corp:'武府科技|乐享生活',
+    motto: '乐享智付',
+    corp:'武府科技|乐享智能生活',
     corpUrl:'http://www.wolfinv.com',
-    intruduce:"免手续费使用信用卡不是梦！",
+    intruduce:"靠脸吃饭不是梦！",
     userInfo: {},
     hasUserInfo: false,
+    provider:"",
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   //事件处理函数
@@ -28,6 +29,8 @@ Page({
     }*/
   },
   onLoad: function () {
+    app.wxlogin();
+    /*
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -53,17 +56,25 @@ Page({
           })
         }
       })
+      
     }
+    */
+    wx.showShareMenu({
+      widthShareTicket:true
+    })
   },
   formSubmit: function (event)
   {
+    wx.navigateTo({
+      //url: '../charge/charge?nickName=' + app.globalData.userInfo.nickName + "&wxid=" + app.globalData.userInfo.wxid +"&provider=" + app.globalData.provider
+      url: '../menu/menu'
+    })
     /*wx.navigateTo({
       url: '../charge/charge?nickName=' + userInfo.nickName
     })*/
+    return;
     if (app.globalData.userInfo) {
-      wx.navigateTo({
-        url: '../charge/charge?nickName=' + app.globalData.userInfo.nickName + "&wxid=" + app.globalData.userInfo.wxid
-      })
+      
         //console.log(userInfo.nickName)
     }
     else {
@@ -78,6 +89,12 @@ Page({
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
+    })
+  },
+  DisplayLogs:function()
+  {
+    wx.navigateTo({
+      url: '../logs/logs'
     })
   }
 })
