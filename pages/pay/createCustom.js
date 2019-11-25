@@ -95,12 +95,13 @@ Page({
     url = url.replace("{4}", e.detail.value.b64AssetImgContent);
     url = url.replace("{5}", e.detail.value.b64IdImgContent);
     url = url.replace("{6}", e.detail.value.b64DoorImgContent);
-    url = url.replace("{7}", this.data.userId);
+    url = url.replace("{7}", app.globalData.userId);
     var mythis = this;
     console.log(url);
+    console.log(app.globalData);
     wx.request({
       url: url,
-      header: { 'content-type': 'application/json' },
+      header: { 'content-type': 'application/json;charset=utf-8' },
       success: (res) => { 
         console.log(res);
         if(res.data.succ ==1 )

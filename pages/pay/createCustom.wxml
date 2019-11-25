@@ -33,8 +33,9 @@
       </image>
     </view>
     <view >联系人信息：</view>
+    <view ><input name="alipayId" type="idcard"  placeholder="*请输入商户支付宝账户"/></view>
     <view ><input name="contactName" placeholder="*请输入姓名"/></view>
-    <view><input name="contactEmail" placeholder="*请输入电子邮箱"/></view>
+    <view><input name="contactEmail" type="idcard" placeholder="*请输入电子邮箱"/></view>
     <view><input type="number" name="contactTel" placeholder="*请输入手机号码"/></view>
 
     <button class="form" form-type="submit" >提交资料</button>

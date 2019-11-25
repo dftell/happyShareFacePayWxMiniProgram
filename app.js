@@ -100,6 +100,7 @@ App({
           mythis.globalData.userName = res.data.info.name;
           mythis.globalData.userDept = res.data.info.dept;
           mythis.globalData.userPos = res.data.info.pos;
+          mythis.globalData.userId = id;
           ret = true;
         }
         else

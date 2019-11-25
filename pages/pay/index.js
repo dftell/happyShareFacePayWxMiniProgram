@@ -126,7 +126,7 @@ Page({
   },
   gotoSaleMgr:function()
   {
-    app.wxLogin();
+    
     wx.navigateTo({
       url: '../pay/MgrIndex'
     })
